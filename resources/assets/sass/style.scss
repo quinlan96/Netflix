@@ -1,0 +1,175 @@
+html {
+}
+
+body {
+	color: #fff;
+}
+
+.btn {
+	border-radius: 0;
+	cursor: pointer;
+}
+
+.btn-primary {
+	background: #e50914;
+	border-color: #e50914;
+}
+
+.btn-primary:hover {
+	background: #B60009;
+	border-color: #B60009;
+}
+
+.btn-primary:disabled {
+	background: #F53942;
+	border-color: #F53942;
+}
+
+.video-container { 
+	height: auto;
+	position: relative;
+	width: 100%;
+}
+
+.video-title, .video-views {
+	font-size: 1.5em;
+	margin-top: 11px;
+}
+
+.video-title { }
+.video-views { margin-left: auto; }
+
+.tags-list {
+	margin: 0 0 0 10px;
+	padding: 0;
+}
+
+.tag {
+	background-color: #f44336;
+	display: inline-block;
+	list-style-type: none;
+	margin: 3px 0 3px 5px;
+	padding: 2px 5px;
+}
+
+.tag a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.tag-count {
+	color: rgba(255, 255, 255, 0.5);
+	margin-left: 2px;
+}
+
+.tag[data-category="Channels"] {
+	background-color: #ab47bc;
+}
+
+.tag[data-gender="M"] {
+	background-color: #2196f3;
+}
+
+.tag[data-gender="F"] {
+	background-color: #ec407a;
+}
+
+.qq-uploader {
+	border: 2px dashed #909090;
+	background: transparent;
+	border-radius: 10px;
+	margin: 1rem 0;
+	padding: 2rem;
+}
+
+.qq-uploader-selector {
+	text-align: center;
+}
+
+.qq-upload-button {
+	display: inline-block;
+	float: none;
+	width: auto;
+	border: none;
+	border-radius: 0;
+	background: #e50914;
+	box-shadow: none;
+}
+
+.qq-upload-button:hover {
+	background: #B60009;
+}
+
+.qq-total-progress-bar-container {
+	background: rgba(255, 255, 255, 0.15);
+	border-radius: 9px;
+	display: none;
+	float: none;
+	margin: 0;
+	position: relative;
+	width: 100%;
+}
+
+.qq-total-progress-bar {
+	margin: 0;
+}
+
+.qq-progress-percentage {
+	color: #fff;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.qq-upload-icon {
+	margin-bottom: 1rem;
+}
+
+.qq-upload-icon i {
+	color: #fff;
+}
+
+.qq-file-name span {
+	color: #fff;
+}
+
+.qq-progress-bar {
+	background: #e50914;
+}
+
+.qq-upload-cancel:hover, .qq-upload-pause:hover, .qq-upload-continue:hover {
+	background: none;
+}
+
+.qq-upload-cancel {
+	font-size: 0.95rem;
+}
+
+.qq-buttons button {
+	background: none;
+	border: none;
+	text-shadow: none;
+	color: #fff;
+	box-shadow: none;
+	margin: .5rem;
+}
+
+.qq-upload-list {
+	box-shadow: none;
+}
+
+.qq-upload-list li {
+	background: transparent;
+	border: none;
+}
+
+.qq-upload-list li.qq-upload-success {
+	background: transparent;
+	border: none;
+}
+
+.qq-upload-list li.qq-upload-retryable {
+	background: transparent;
+	border: none;
+}
