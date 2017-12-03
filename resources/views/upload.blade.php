@@ -83,6 +83,7 @@
 		<form id="upload" method="post" class="col-md-12" action="/upload">
 			{{ csrf_field() }}
 			<input type="hidden" name="uuid">
+			<input type="hidden" name="filename">
 			<h1>Upload</h1>
 			<div id="uploader"></div>
 			<div class="form-group">

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illumiante\Support\Facades\Storage;
+use Illuminate\Support\Facades\Storage;
 
 use App\Classes\UploadHandler;
 use App\Video;
+use App\Jobs\EncodeVideo;
 
 class UploadController extends Controller
 {
@@ -14,12 +15,13 @@ class UploadController extends Controller
 		return view('upload');
 	}
 
-	public function process() {
+	public function process(Request $request) {
+
 		$video = new Video();
 
-		$video->name = $_POST['title'];
+		$video->name = $request->input('title');
 
-		$video->description = $_POST['description'];
+		$video->description = $request->input('description');
 
 		$video->views = 0; 
 
@@ -27,11 +29,18 @@ class UploadController extends Controller
 
 		$video->save();
 
-		if(Storage::disk('public')->exists('videos/'.$video->id)) {
-			
-		} else {
+		$extension = pathinfo(storage_path('app/public/upload/'.$request->input('uuid').'/'.$request->input('filename')), PATHINFO_EXTENSION);
 
+		if(Storage::exists('videos/'.$video->id)) {
+			Storage::move('upload/'.$request->input('uuid').'/'.$request->input('filename'), 'videos/'.$video->id.'/raw.'.$extension);
+		} else {
+			Storage::makeDirectory('videos/'.$video->id);
+			Storage::move('upload/'.$request->input('uuid').'/'.$request->input('filename'), 'videos/'.$video->id.'/raw.'.$extension);
 		}
+
+		Storage::deleteDirectory('upload/'.$request->input('uuid'));
+
+		EncodeVideo::dispatch($video, $extension);
 
 		return redirect('/');
 	}

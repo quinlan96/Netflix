@@ -890,6 +890,8 @@ $(document).ready(function () {
 			},
 			onAllComplete: function onAllComplete(succeeded, failed) {
 				if (succeeded.length > 0 && failed.length == 0) {
+					document.getElementsByName('uuid')[0].setAttribute('value', uploader.getUuid(succeeded[0]));
+					document.getElementsByName('filename')[0].setAttribute('value', uploader.getName(succeeded[0]));
 					document.getElementById('upload-btn').disabled = false;
 					document.getElementsByClassName('qq-total-progress-bar-container')[0].style.background = "#4CAF50";
 					document.getElementsByClassName('qq-progress-percentage')[0].innerHTML = "Completed";
