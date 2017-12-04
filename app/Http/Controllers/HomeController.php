@@ -21,7 +21,7 @@ class HomeController extends Controller
 	}
 
 	public function home() {
-		$videos = Video::all();
+		$videos = Video::where('posted', '=', 1)->get();
 
 		return view('home', compact('videos'));
 	}
